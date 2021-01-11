@@ -38,7 +38,7 @@ let creds = {
 const usableArgs = argv.o||"";
 creds.directory = (argv._ && argv._[1]) ||creds.directory
 const urlbit = (argv._ && argv._[0]) ||creds.url
-console.log(urlbit)
+// console.log(urlbit)
 creds.url = (urlbit && validURL(urlbit))|| (creds.url&& validURL(creds.url))
 
 // perform an undefined check
@@ -150,7 +150,7 @@ const ops = {
             });
     },
     read: (path, fd, buf, len, pos, cb) => {
-        console.log('I>read(%s,%d)', path, fd,len,pos);
+        // console.log('I>read(%s,%d)', path, fd,len,pos);
         fuseops
             .read(path, fd, buf, len, pos)
             .then(e => {

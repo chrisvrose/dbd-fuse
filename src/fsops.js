@@ -161,7 +161,7 @@ async function chmod(path, mode) {
             path,
             permissions: mode,
         });
-        console.log(response.data);
+        // console.log(response.data);
         const change = parseInt(response.data.changed);
         if (change < 1) {
             throw new FSError('no perm', EACCES);
@@ -489,14 +489,14 @@ async function utimens(path,atime,mtime) {
             atime,
             mtime
         });
-        console.log(response.data);
+        // console.log(response.data);
         const change = parseInt(response.data.result);
         // if (change < 1) {
         //     throw new FSError('no perm', EACCES);
         // }
         return change;
     } catch (err) {
-        console.log(err.response.status);
+        // console.log(err.response.status);
         // need to throw errors here, so they are caught upstream by the readdir function
         if ((err && err.response && err.response.status) === 404) {
             throw new FSError('Folder not found');
